@@ -6,5 +6,6 @@ namespace LitterBugApp.Models
     {
         public readonly string UnitName;
         public readonly UnitType UnitType;
+        public decimal UnitAmount { get; set; }
     }
 }
