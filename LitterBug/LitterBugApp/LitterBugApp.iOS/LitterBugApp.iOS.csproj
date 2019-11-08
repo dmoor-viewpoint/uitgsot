@@ -118,6 +118,9 @@
     <ITunesArtwork Include="iTunesArtwork@3x.png" />
   </ItemGroup>
   <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\car.imageset\car.png">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
@@ -170,6 +173,21 @@
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\cow.imageset\cow@3x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\lightbulb.imageset\lightbulb.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\tree.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\car.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\lightbulb.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\tree.imageset\pine-tree.png">
       <Visible>false</Visible>
     </ImageAsset>
   </ItemGroup>

@@ -8,5 +8,6 @@ namespace LitterBugApp.Views.Main
         {
             InitializeComponent();
         }
+
     }
 }

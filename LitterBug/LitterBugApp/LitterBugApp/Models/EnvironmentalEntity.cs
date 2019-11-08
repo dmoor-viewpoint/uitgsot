@@ -14,5 +14,6 @@ namespace LitterBugApp.Models
         public decimal AssociatedCO2CostPerUnit { get; set; }
         public Categories Category { get; set; }
         public List<EnvironmentalEntity> FactList { get; set;}
+        public double AmountEntered { get; set; }
     }
 }
