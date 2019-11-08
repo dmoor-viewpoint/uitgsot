@@ -8,7 +8,7 @@ namespace LitterBugApp.Services.Interfaces
 {
     public interface ICalculationService
     {
-        decimal CalculateCO2(BaseUnitModel baseUnitModel, decimal amount);
+        decimal CalculateCO2(EnvironmentalEntity entity, decimal amount);
 
     }
 }
