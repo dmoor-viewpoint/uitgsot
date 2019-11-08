@@ -11,6 +11,8 @@ using LitterBugApp.Views.Main;
 using LitterBugApp.ViewModels.Main;
 using LitterBugApp.Views.Navigation;
 using LitterBugApp.ViewModels.Navigation;
+using LitterBugApp.Services.Interfaces;
+using LitterBugApp.Services;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace LitterBugApp
@@ -33,8 +35,10 @@ namespace LitterBugApp
 
             await NavigationService.NavigateAsync("TabNavPage");
 
-            var userKey = Guid.NewGuid();
-            var user = User.WithKey(userKey.ToString());
+            var user = User.Builder((string)null)
+                           .Anonymous(true)
+                           .Build();
+
             LdClient = await LdClient.InitAsync("_MY_MOBILE_KEY", user);            
         }
 
@@ -45,6 +49,9 @@ namespace LitterBugApp
             containerRegistry.RegisterForNavigation<PositivePage, PositivePageViewModel>();
             containerRegistry.RegisterForNavigation<NegativePage, NegativePageViewModel>();
             containerRegistry.RegisterForNavigation<TabNavPage, TabNavPageViewModel>();
+
+            containerRegistry.RegisterSingleton<IConversionService, ConversionService>();
+            containerRegistry.RegisterSingleton<ICalculationService, CalculationService>();
         }
     }
 }
