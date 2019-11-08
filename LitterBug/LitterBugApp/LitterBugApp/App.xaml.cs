@@ -7,6 +7,10 @@ using Xamarin.Forms.Xaml;
 using LaunchDarkly.Client;
 using LaunchDarkly.Xamarin;
 using System;
+using LitterBugApp.Views.Main;
+using LitterBugApp.ViewModels.Main;
+using LitterBugApp.Views.Navigation;
+using LitterBugApp.ViewModels.Navigation;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace LitterBugApp
@@ -27,17 +31,20 @@ namespace LitterBugApp
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("NavigationPage/MainPage");
+            await NavigationService.NavigateAsync("TabNavPage");
 
             var userKey = Guid.NewGuid();
             var user = User.WithKey(userKey.ToString());
-            LdClient = await LdClient.InitAsync("_MY_MOBILE_KEY", user);
+            LdClient = await LdClient.InitAsync("_MY_MOBILE_KEY", user);            
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
+            containerRegistry.RegisterForNavigation<PositivePage, PositivePageViewModel>();
+            containerRegistry.RegisterForNavigation<NegativePage, NegativePageViewModel>();
+            containerRegistry.RegisterForNavigation<TabNavPage, TabNavPageViewModel>();
         }
     }
 }
