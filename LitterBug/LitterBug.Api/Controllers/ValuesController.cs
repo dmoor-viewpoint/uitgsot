@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 
 namespace LitterBug.Api.Controllers
 {
@@ -10,11 +11,23 @@ namespace LitterBug.Api.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+        private readonly IConfiguration _config;
+
+        public ValuesController(IConfiguration config)
+        {
+            _config = config;
+        }
+
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            return new string[] { "value1", "value2" };
+            var myValue = _config["LaunchDarklyKey"];
+            if (myValue == null || myValue == "")
+            {
+                myValue = "Could not load value from key vault";
+            }
+            return new string[] { "loadedKeyValueSecret", myValue };
         }
 
         // GET api/values/5
