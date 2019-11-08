@@ -4,8 +4,26 @@
              x:Class="LitterBugApp.Views.MainPage"
              Title="{Binding Title}">
 
-    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-        <Label Text="Welcome to Xamarin Forms and Prism!" />
-    </StackLayout>
+    <CollectionView ItemsSource="{Binding Tiles}" ItemsLayout="VerticalList">
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <Grid BackgroundColor="Green">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="4*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <Image Grid.Row="0" Grid.Column="0" Source="cow.png"></Image>
+                    <Label Grid.Row="0" Grid.Column="1"></Label>
+
+                    <BoxView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"></BoxView>
+                </Grid>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
 
 </ContentPage>
