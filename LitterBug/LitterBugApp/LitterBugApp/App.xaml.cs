@@ -4,6 +4,9 @@ using LitterBugApp.ViewModels;
 using LitterBugApp.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using LaunchDarkly.Client;
+using LaunchDarkly.Xamarin;
+using System;
 using LitterBugApp.Views.Main;
 using LitterBugApp.ViewModels.Main;
 using LitterBugApp.Views.Navigation;
@@ -14,6 +17,7 @@ namespace LitterBugApp
 {
     public partial class App
     {
+        static LdClient LdClient;
         /* 
          * The Xamarin Forms XAML Previewer in Visual Studio uses System.Activator.CreateInstance.
          * This imposes a limitation in which the App class must have a default constructor. 
@@ -28,6 +32,10 @@ namespace LitterBugApp
             InitializeComponent();
 
             await NavigationService.NavigateAsync("TabNavPage");
+
+            var userKey = Guid.NewGuid();
+            var user = User.WithKey(userKey.ToString());
+            LdClient = await LdClient.InitAsync("_MY_MOBILE_KEY", user);            
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
