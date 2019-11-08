@@ -45,7 +45,7 @@ namespace LitterBug.Api
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             var builder = new ConfigurationBuilder()
-                            .SetBasePath(_env.ContentRootPath)
+                            .SetBasePath(env.ContentRootPath)
                             .AddJsonFile("appsettings.json", true, true)
                             .AddJsonFile($"appsettings.{env.EnvironmentName}.json", true)
                             .AddEnvironmentVariables();
@@ -74,8 +74,7 @@ namespace LitterBug.Api
                 //    new DefaultKeyVaultSecretManager());
             }
 
-            _config = builder.Build();
-        }      
+            _config = builder.Build();  
 
             app.UseHttpsRedirection();
             app.UseMvc();
