@@ -10,11 +10,14 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using LaunchDarkly.Client;
 
 namespace LitterBug.Api
 {
     public class Startup
     {
+        static LdClient ldClient;
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -25,7 +28,12 @@ namespace LitterBug.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc()
+                    .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            ldClient = new LdClient("MY_SDK_KEY");
+
+            services.AddSingleton(ldClient);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

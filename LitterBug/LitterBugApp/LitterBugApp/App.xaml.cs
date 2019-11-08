@@ -35,8 +35,10 @@ namespace LitterBugApp
 
             await NavigationService.NavigateAsync("TabNavPage");
 
-            var userKey = Guid.NewGuid();
-            var user = User.WithKey(userKey.ToString());
+            var user = User.Builder((string)null)
+                           .Anonymous(true)
+                           .Build();
+
             LdClient = await LdClient.InitAsync("_MY_MOBILE_KEY", user);            
         }
 

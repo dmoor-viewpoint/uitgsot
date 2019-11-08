@@ -6,6 +6,7 @@
         Volume,
         LengthDistance,
         WeightMass,
-        Generic
+        Generic,
+        Absolute //Little easter egg
     }
 }
