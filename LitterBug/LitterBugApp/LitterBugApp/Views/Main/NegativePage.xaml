@@ -4,5 +4,58 @@
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="LitterBugApp.Views.Main.NegativePage">
-    <Label Text="Negative Page"></Label>
+    <CollectionView ItemsSource="{Binding EnvironmentalEntities}" ItemsLayout="VerticalList" BackgroundColor="White">
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <StackLayout VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="#002e5b" Visual="Material">
+                    <Grid BackgroundColor="#71a544" Margin="12" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" RowSpacing="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="60"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="100"/>
+                            <RowDefinition Height="150"/>
+                            <RowDefinition Height="250"/>
+                        </Grid.RowDefinitions>
+
+                        <StackLayout Grid.Row="0"  Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+                            <Image Source="cow.png" VerticalOptions="Center" HorizontalOptions="Start"/>
+                            <Label Grid.Row="0" FontSize="Large" VerticalOptions="Center" HorizontalOptions="Center" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="White" FontAttributes="Bold" Text="{Binding Title}"/>
+                        </StackLayout>
+
+
+                        <BoxView Grid.Row="1" VerticalOptions="Fill" HorizontalOptions="Fill" BackgroundColor="#ffbf00"/>
+
+                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="#628f3b" Grid.Row="2">
+                                <Label Text="{Binding Category}" FontSize="Medium" FontAttributes="Bold" TextColor="White" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalOptions="Center" VerticalTextAlignment="Center"/>
+                            <Entry HorizontalOptions="Center" WidthRequest="80" Keyboard="Numeric" BackgroundColor="#628f3b" Placeholder="How often do you have beef?"/>
+                            </StackLayout>
+
+                        <Frame Grid.Row="3" BackgroundColor="LightGray" BorderColor="DarkGreen" Margin="10">
+                            <StackLayout>
+                                <Label Text="Your beef consumption accounts for" TextColor="#6c7078" HorizontalOptions="Center" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
+                                <Label Text="* 100 tons of CO2 produced each week" TextColor="#6c7078" FontAttributes="Bold"/>
+                                <Label Text="* 1000 tons of CO2 produced each year" TextColor="#6c7078" FontAttributes="Bold"/>
+                                <Label Text="* 2000 tons of CO2 produced in your lifetime" TextColor="#6c7078" FontAttributes="Bold"/>
+                            </StackLayout>
+                        </Frame>
+
+                        <StackLayout Grid.Row="4" BackgroundColor="#628f3b">
+                            <CollectionView ItemsSource="{Binding FactList}">
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Frame Margin="10, 2, 10, 2" BackgroundColor="#628f3b" BorderColor="#507530">
+                                        <StackLayout>
+                                            <Label Text="{Binding Title}" FontSize="Medium" FontAttributes="Bold" TextColor="White"/>
+                                        </StackLayout>
+                                        </Frame>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                        </StackLayout>
+                    </Grid>
+                </StackLayout>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+
 </ContentPage>

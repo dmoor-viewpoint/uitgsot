@@ -7,14 +7,14 @@
             android:TabbedPage.ToolbarPlacement="Bottom"
             prism:ViewModelLocator.AutowireViewModel="True"
             x:Class="LitterBugApp.Views.Navigation.TabNavPage">
-    <NavigationPage Title="Positive">
-        <x:Arguments>
-            <main:PositivePage/>
-        </x:Arguments>
-    </NavigationPage>
     <NavigationPage Title="Negative">
         <x:Arguments>
             <main:NegativePage/>
+        </x:Arguments>
+    </NavigationPage>
+    <NavigationPage Title="Positive">
+        <x:Arguments>
+            <main:PositivePage/>
         </x:Arguments>
     </NavigationPage>
 </TabbedPage>
