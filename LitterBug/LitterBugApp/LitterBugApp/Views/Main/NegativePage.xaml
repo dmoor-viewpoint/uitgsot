@@ -23,17 +23,27 @@
             <BoxView Grid.Row="1" VerticalOptions="Fill" HorizontalOptions="Fill" BackgroundColor="#ffbf00"/>
 
             <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="#71a544" Grid.Row="2" Padding="15, 10, 15, 0" Orientation="Horizontal">
-                <Label Text="{Binding EnvironmentalEntity.Category}" FontSize="Medium" FontAttributes="Bold" TextColor="White" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalOptions="Center" VerticalTextAlignment="Center"/>
-                <Entry Keyboard="Numeric" BackgroundColor="#71a544" HorizontalOptions="CenterAndExpand" WidthRequest="100" Text="{Binding AmountEntered}">
-                </Entry>
+                <Label Text="{Binding EnvironmentalEntity.Type}" FontSize="Medium" FontAttributes="Bold" TextColor="White" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalOptions="Center" VerticalTextAlignment="Center"/>
+                <Entry Keyboard="Numeric" BackgroundColor="#71a544" HorizontalOptions="CenterAndExpand" WidthRequest="100" Text="{Binding AmountEntered}"/>
+
             </StackLayout>
 
             <Frame Grid.Row="3" BackgroundColor="LightGray" BorderColor="DarkGreen" Margin="10">
                 <StackLayout>
+                   
                     <Label Text="Your beef consumption accounts for:" TextColor="#6c7078" HorizontalOptions="Center" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
-                    <Label Text="* 100kg of CO2 produced each week" TextColor="#6c7078" FontAttributes="Bold"/>
-                    <Label Text="* 1000kg of CO2 produced each year" TextColor="#6c7078" FontAttributes="Bold"/>
-                    <Label Text="* 2000kg of CO2 produced in your lifetime" TextColor="#6c7078" FontAttributes="Bold"/>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="{Binding KilosPerWeek}" TextColor="#6c7078" FontAttributes="Bold"/>
+                        <Label Text="of CO2 produced each week"/>
+                    </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding KilosPerYear}" TextColor="#6c7078" FontAttributes="Bold"/>
+                                <Label Text="of CO2 produced each year"/>
+                            </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding KilosPerLife}" TextColor="#6c7078" FontAttributes="Bold"/>
+                                <Label Text="of CO2 produced in your lifetime"/>
+                            </StackLayout>
                 </StackLayout>
             </Frame>
 
