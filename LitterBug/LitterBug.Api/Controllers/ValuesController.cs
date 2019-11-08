@@ -23,10 +23,10 @@ namespace LitterBug.Api.Controllers
         public ActionResult<IEnumerable<string>> Get()
         {
             var myValue = _config["Keys:ExampleTestKey"];
-            if (myValue == null || myValue == "")
-            {
-                myValue = "Could not load test value from key vault";
-            }
+            //if (myValue == null || myValue == "")
+            //{
+            //    myValue = "Could not load test value from key vault";
+            //}
             return new string[] { "loadedKeyValueSecret", myValue };
         }
 
