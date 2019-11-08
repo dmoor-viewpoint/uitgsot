@@ -22,7 +22,7 @@ namespace LitterBug.Api.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            var myValue = _config["LaunchDarklyKey"];
+            var myValue = _config["Keys:LaunchDarkly"];
             if (myValue == null || myValue == "")
             {
                 myValue = "Could not load value from key vault";
