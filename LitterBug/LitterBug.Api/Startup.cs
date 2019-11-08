@@ -39,15 +39,15 @@ namespace LitterBug.Api
             {
                 var builtConfig = builder.Build();
 
-                var azureServiceTokenProvider = new AzureServiceTokenProvider();
-                var keyVaultClient = new KeyVaultClient(
-                    new KeyVaultClient.AuthenticationCallback(
-                        azureServiceTokenProvider.KeyVaultTokenCallback));
+                //var azureServiceTokenProvider = new AzureServiceTokenProvider();
+                //var keyVaultClient = new KeyVaultClient(
+                //    new KeyVaultClient.AuthenticationCallback(
+                //        azureServiceTokenProvider.KeyVaultTokenCallback));
 
-                builder.AddAzureKeyVault(
-                    $"https://{builtConfig["KeyVaultName"]}.vault.azure.net/",
-                    keyVaultClient,
-                    new DefaultKeyVaultSecretManager());
+                //builder.AddAzureKeyVault(
+                //    $"https://{builtConfig["KeyVaultName"]}.vault.azure.net/",
+                //    keyVaultClient,
+                //    new DefaultKeyVaultSecretManager());
             }
 
             _config = builder.Build();
