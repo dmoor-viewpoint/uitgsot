@@ -10,6 +10,26 @@ namespace LitterBugApp.ViewModels.Main
     public class NegativePageViewModel : BindableBase
     {
         public List<EnvironmentalEntity> EnvironmentalEntities { get; set; }
+        public EnvironmentalEntity EnvironmentalEntity { get; set; }
+        private double amountEntered;
+        public double AmountEntered
+        {
+            get { return amountEntered; }
+            set
+            {
+                if (amountEntered != value)
+                {
+                    amountEntered = value;
+                    RaisePropertyChanged("AmountEntered");
+                    AmountChanged();
+                }
+            }
+        }
+
+        private void AmountChanged()
+        {
+            var x = AmountEntered;
+        }
 
         public NegativePageViewModel()
         {
@@ -68,6 +88,8 @@ namespace LitterBugApp.ViewModels.Main
                     }
                 }
             };
+
+            EnvironmentalEntity = EnvironmentalEntities.FirstOrDefault();
         }
     }
 }

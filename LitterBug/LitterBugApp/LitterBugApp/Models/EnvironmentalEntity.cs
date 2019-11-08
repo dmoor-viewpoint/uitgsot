@@ -12,5 +12,6 @@ namespace LitterBugApp.Models
         public Image TitleImage { get; set; }
         public string Category { get; set; }
         public List<EnvironmentalEntity> FactList { get; set;}
+        public double AmountEntered { get; set; }
     }
 }
