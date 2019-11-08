@@ -9,98 +9,62 @@ namespace LitterBugApp.ViewModels.Main
 {
     public class NegativePageViewModel : BindableBase
     {
-        public List<NegativeEntity> NegativeEntities { get; set; }
+        public List<EnvironmentalEntity> EnvironmentalEntities { get; set; }
 
         public NegativePageViewModel()
         {
-            NegativeEntities = new List<NegativeEntity>
+            EnvironmentalEntities = new List<EnvironmentalEntity>
             {
-                new NegativeEntity
+                new EnvironmentalEntity
                 {
-                    Name = "Beef",
+                    Title = "Beef Consumption",
                     Type = "Cow",
-                    MeasurementMetric = 4,
-                    Image = new Xamarin.Forms.Image { Source = "cow.png"},
-                    TestList = new List<NegativeEntity>
+                    TitleImage = new Xamarin.Forms.Image { Source = "cow.png"},
+                    Category = string.Format("How often do you have {0}", "Beef"),
+                    FactList = new List<EnvironmentalEntity>
                     {
-                     new NegativeEntity
-                     {
-                         Name = "Test 1s"
-                     },
-                     new NegativeEntity
-                     {
-                         Name = "Test 2s"
-                     },
-                     new NegativeEntity
-                     {
-                         Name = "Test 3s"
-                     }
+                        new EnvironmentalEntity { Title = "Can power 52 homes for a year" },
+                        new EnvironmentalEntity { Title = "Is the same as travelling 500 miles in a car" },
+                        new EnvironmentalEntity { Title = "Undoes the effect of 27 Trees" }
                     }
                 },
-                new NegativeEntity
+                new EnvironmentalEntity
                 {
-                    Name = "Beef",
+                    Title = "Beef",
                     Type = "Cow",
-                    MeasurementMetric = 4,
-                    Image = new Xamarin.Forms.Image { Source = "cow.png"},
-                                        TestList = new List<NegativeEntity>
+                    TitleImage = new Xamarin.Forms.Image { Source = "cow.png"},
+                    Category = string.Format("How often do you have {0}", "Beef"),
+                    FactList = new List<EnvironmentalEntity>
                     {
-                     new NegativeEntity
-                     {
-                         Name = "Test 1s"
-                     },
-                     new NegativeEntity
-                     {
-                         Name = "Test 2s"
-                     },
-                     new NegativeEntity
-                     {
-                         Name = "Test 3s"
-                     }
+                        new EnvironmentalEntity { Title = "Can power 52 homes for a year" },
+                        new EnvironmentalEntity { Title = "Is the same as travelling 500 miles in a car" },
+                        new EnvironmentalEntity { Title = "Undoes the effect of 27 Trees" }
                     }
                 },
-                new NegativeEntity
+                new EnvironmentalEntity
                 {
-                    Name = "Beef",
+                    Title = "Beef",
                     Type = "Cow",
-                    MeasurementMetric = 4,
-                    Image = new Xamarin.Forms.Image { Source = "cow.png"},
-                                        TestList = new List<NegativeEntity>
+                    TitleImage = new Xamarin.Forms.Image { Source = "cow.png"},
+                    Category = string.Format("How often do you have {0}", "Beef"),
+                    FactList = new List<EnvironmentalEntity>
                     {
-                     new NegativeEntity
-                     {
-                         Name = "Test 1s"
-                     },
-                     new NegativeEntity
-                     {
-                         Name = "Test 2s"
-                     },
-                     new NegativeEntity
-                     {
-                         Name = "Test 3s"
-                     }
+                        new EnvironmentalEntity { Title = "Can power 52 homes for a year" },
+                        new EnvironmentalEntity { Title = "Is the same as travelling 500 miles in a car" },
+                        new EnvironmentalEntity { Title = "Undoes the effect of 27 Trees" }
                     }
                 },
-                new NegativeEntity
+                new EnvironmentalEntity
                 {
-                    Name = "Beef",
+                    Title = "Beef",
                     Type = "Cow",
-                    MeasurementMetric = 4,
-                    Image = new Xamarin.Forms.Image { Source = "cow.png"},
-                                        TestList = new List<NegativeEntity>
+                    TitleImage = new Xamarin.Forms.Image { Source = "cow.png"},
+                    Category = string.Format("How often do you have {0}", "Beef"),
+                    FactList = new List<EnvironmentalEntity>
                     {
-                     new NegativeEntity
-                     {
-                         Name = "Test 1s"
-                     },
-                     new NegativeEntity
-                     {
-                         Name = "Test 2s"
-                     },
-                     new NegativeEntity
-                     {
-                         Name = "Test 3s"
-                     }
+                        new EnvironmentalEntity { Title = "Can power 52 homes for a year" },
+                        new EnvironmentalEntity { Title = "Is the same as travelling 500 miles in a car" },
+                        new EnvironmentalEntity { Title = "Undoes the effect of 27 Trees" }
                     }
                 }
             };

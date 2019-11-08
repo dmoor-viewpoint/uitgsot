@@ -4,51 +4,54 @@
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="LitterBugApp.Views.Main.NegativePage">
-    <CollectionView ItemsSource="{Binding NegativeEntities}" ItemsLayout="VerticalList" BackgroundColor="White">
+    <CollectionView ItemsSource="{Binding EnvironmentalEntities}" ItemsLayout="VerticalList" BackgroundColor="White">
         <CollectionView.ItemTemplate>
             <DataTemplate>
-                <StackLayout VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="#002e5b">
-                    <Grid BackgroundColor="#71a544" Margin="12">
+                <StackLayout VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="#002e5b" Visual="Material">
+                    <Grid BackgroundColor="#71a544" Margin="12" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" RowSpacing="0">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="4*"/>
-                            <RowDefinition Height="4*"/>
-                            <RowDefinition Height="6*"/>
-                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="60"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="100"/>
+                            <RowDefinition Height="150"/>
+                            <RowDefinition Height="250"/>
                         </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="1*"/>
-                            <ColumnDefinition Width="3*"/>
-                        </Grid.ColumnDefinitions>
 
-                        <Image Grid.Row="0" Grid.Column="0" Source="cow.png"/>
-                        <Label Grid.Row="0" Grid.Column="1" FontSize="Header" VerticalOptions="Center" HorizontalOptions="Center" TextColor="White" FontAttributes="Bold" Text="{Binding Name}"/>
-
-                        <StackLayout BackgroundColor="#6c9e41" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1">
-                            <Label Text="Bacon ipsum dolor amet short loin pork belly prosciutto venison turducken pork loin. Leberkas filet mignon beef ribs." 
-                                   TextColor="White"
-                                   FontAttributes="Italic"
-                                   HorizontalTextAlignment="Center"/>
-
-                            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Center" BackgroundColor="#628f3b">
-                                <Label Text="How much beef do you consume a week?" FontSize="Medium" FontAttributes="Bold" TextColor="White" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
-                                <Entry VerticalOptions="CenterAndExpand" WidthRequest="20" Keyboard="Numeric"/>
-                            </StackLayout>
+                        <StackLayout Grid.Row="0"  Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+                            <Image Source="cow.png" VerticalOptions="Center" HorizontalOptions="Start"/>
+                            <Label Grid.Row="0" FontSize="Large" VerticalOptions="Center" HorizontalOptions="Center" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="White" FontAttributes="Bold" Text="{Binding Title}"/>
                         </StackLayout>
 
-                        <StackLayout Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2">
-                            <CollectionView ItemsSource="{Binding TestList}">
+
+                        <BoxView Grid.Row="1" VerticalOptions="Fill" HorizontalOptions="Fill" BackgroundColor="#ffbf00"/>
+
+                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="#628f3b" Grid.Row="2">
+                                <Label Text="{Binding Category}" FontSize="Medium" FontAttributes="Bold" TextColor="White" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalOptions="Center" VerticalTextAlignment="Center"/>
+                            <Entry HorizontalOptions="Center" WidthRequest="80" Keyboard="Numeric" BackgroundColor="#628f3b" Placeholder="How often do you have beef?"/>
+                            </StackLayout>
+
+                        <Frame Grid.Row="3" BackgroundColor="LightGray" BorderColor="DarkGreen" Margin="10">
+                            <StackLayout>
+                                <Label Text="Your beef consumption accounts for" TextColor="#6c7078" HorizontalOptions="Center" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
+                                <Label Text="* 100 tons of CO2 produced each week" TextColor="#6c7078" FontAttributes="Bold"/>
+                                <Label Text="* 1000 tons of CO2 produced each year" TextColor="#6c7078" FontAttributes="Bold"/>
+                                <Label Text="* 2000 tons of CO2 produced in your lifetime" TextColor="#6c7078" FontAttributes="Bold"/>
+                            </StackLayout>
+                        </Frame>
+
+                        <StackLayout Grid.Row="4" BackgroundColor="#628f3b">
+                            <CollectionView ItemsSource="{Binding FactList}">
                                 <CollectionView.ItemTemplate>
                                     <DataTemplate>
+                                        <Frame Margin="10, 2, 10, 2" BackgroundColor="#628f3b" BorderColor="#507530">
                                         <StackLayout>
-                                            <Label Text="{Binding Name}"/>
+                                            <Label Text="{Binding Title}" FontSize="Medium" FontAttributes="Bold" TextColor="White"/>
                                         </StackLayout>
+                                        </Frame>
                                     </DataTemplate>
                                 </CollectionView.ItemTemplate>
                             </CollectionView>
                         </StackLayout>
-                        
-                        <BoxView Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="Fill" HorizontalOptions="Fill" BackgroundColor="#ffbf00"/>
-
                     </Grid>
                 </StackLayout>
             </DataTemplate>

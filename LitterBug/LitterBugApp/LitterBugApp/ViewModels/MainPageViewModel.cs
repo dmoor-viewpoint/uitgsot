@@ -11,7 +11,6 @@ namespace LitterBugApp.ViewModels
 {
     public class MainPageViewModel : ViewModelBase
     {
-        public List<PositiveEntity> PositiveEntities { get; set; }
 
         public MainPageViewModel(INavigationService navigationService)
             : base(navigationService)
